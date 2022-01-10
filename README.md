@@ -44,3 +44,85 @@ Lab Setup
 
     Chrome      Browser
 
+Angular 11
+--------------------------------------------------------------
+
+    it is a javascript based SPA framework.
+
+    DWA (Dynamic Web Application) ?
+
+        WebServer                                                              Client
+
+            Controllers + Views <------------REQ1 (URL) ---------------------  
+            (Servlet + JSP)     ----View renders HTML, (HTML+JS+CSS) RESP--->   loads the html freshly on DOM
+            (ASP.NET)           <------------REQ2 (URL) ---------------------   by submiting a form, clicking a link...
+            (Python) ..etc      ----View renders HTML, (HTML+JS+CSS) RESP--->   the previous page has to unload
+                                                                                and the current resp contetn
+                                                                                loads the html freshly on DOM
+
+
+    SPA (Single Page Application) ?
+
+        WebServer                                                              Client
+
+            SPA Bundle              <------------REQ1 (URL) --------------------- 
+            (index.html + JS + CSS) ------------Whole SPA Bundle RESP-----------> The received index.html is loaded
+                                                                                    into the DOM, and the 
+                                                                                    JS is executed on the client
+
+                                                                                form submitions, clicking links are all
+                                                                                handled on the client by the
+                                                                                JS. And the JS can generated the 
+                                                                                neede html on the client and can
+                                                                                replace any protion of the index.html
+                                                                                with the generated ones.
+
+        BackEnd Server (Application Server)
+
+            SOAP / Restful webservice             <----------- req----------- JS will req for data retrival/ storage
+                                                                                async..ly time to time.
+
+                                            -------.xml/.json (Resp)---------> JS will receive the data and prints it
+                                                                                on index.html
+    SPA frameworks
+
+        AngularJS
+        Angular
+        ReactJS
+        VueJS
+        ...etc
+
+    AngularJS vs Angular
+
+
+        AngularJS can be consumed in Javascript only.
+
+        Angular is the next version of AngularJS, from Angular2,Angular4,Angular5.....Angular11, and here
+        the Angular can be consumed in Typescript and Javascript.
+
+
+    Typescript vs JavaScript
+
+        Typescript = Javascript + Typesafty.   
+
+        typescript is not supported by any browser, hence typescript must be
+        compiled (transpelled) to JS using a compile like babel
+
+
+        Javascript
+
+            function f1(userName){
+                return userName + ' is of length ' + userName.length() + ' chars';
+            }
+
+            f1('Vamsy');        //no problem
+            f1(12334567);       //raise a runtime error says .length is not a method
+
+        Typescript
+
+            function f1(userName:string) : string {
+                return userName + ' is of length ' + userName.length() + ' chars';
+            }
+
+            f1('Vamsy');        //no problem
+            f1(12334567);       //a compile time error occurs, type mismatch expecting a string
