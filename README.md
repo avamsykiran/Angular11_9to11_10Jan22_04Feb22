@@ -108,7 +108,6 @@ Angular 11
         typescript is not supported by any browser, hence typescript must be
         compiled (transpelled) to JS using a compile like babel
 
-
         Javascript
 
             function f1(userName){
@@ -126,3 +125,117 @@ Angular 11
 
             f1('Vamsy');        //no problem
             f1(12334567);       //a compile time error occurs, type mismatch expecting a string
+
+Angular 11 Archetecture
+-----------------------------------------------------------------------------------------------------
+
+    1. Any angular resource is a typescript class, marked by a specific decorator.
+    2. The configaration of each of resoruces is supplied as a JSON object to the decorator and is called meta-data
+
+    Module
+                    1. Angular Module is a group of components,directives,pipes,services and other angular module.
+                    2. Angular Modules are different from ES Modules.
+                    3. ES Modules are physical (Each file is a spearate ES Module), but Angular
+                        Modules are logical, they are objects of a Module Class
+                    4. Each angular app msut have one and only one ROOT MODULE, and that ROOT MODULE will
+                        contain everything needed by the APP.
+                    5. The sub-modules contaiend in the root-module are called feature-modules
+
+                    AppModule                               root module
+                        |- HomeComponent
+                        |- HeaderComponent
+                        |- FooterComponent
+                        |- SalesModule                      feature module
+                            |-CartComponent
+                            |-BillingComponent
+                        |- InventoryModule                  feature module
+                            |-AddItemToStockComponent
+                            ........
+
+                    @NgModule({
+                        declarations:[
+                            //list of components, pipes and directives that belong to this module
+                        ],
+                        imports:[
+                            //list of feature modules that are nested in the current module
+                        ],
+                        exports:[
+                            //list of components, pipes and directives that belong to this module, and
+                            //that are allowed to be accessed out side this module
+                            //this property is not used in Root-Module
+                        ],
+                        providers:[
+                            //list of services,guards and interceptors
+                        ],
+                        bootstrap:[
+                            //is used only in the root-module
+                            //we put the list of components that msut be instatiated immediatly
+                            //after the root-module is loaded 
+                        ]
+                    })
+                    class ModuleName {
+
+                    }
+    Component
+                    1. Angular allows us to extend HTML, we can create our own HTML elements and HTML attributes.
+                    2. A Component is a custom HTML element.
+                    3. The tag-name of a component is given in its 'selector' property.
+                    4. Each compoent has a template that dictates what is to be renderd on the screen when the tag is used.
+
+                    app-header.component.html
+                        <app-today></app-today>
+                        <h3>{{title}}</h3>
+
+                    app-header.component.ts
+                        @Component({
+                            selector:'app-header',
+                            templateUrl:'app-header.component.html',
+                            providers:[]
+                        })
+                        class HeaderComponent{
+                            title:string;
+
+                            constructor(){
+                                this.title="My First Web";
+                            }
+
+                        }
+
+                    <app-header></app-header>      =====  <h3>My First Web</h3>
+
+    Directive
+                    1. Angular allows us to extend HTML, we can create our own HTML elements and HTML attributes.
+                    2. A Directive is a custom HTML attribute.
+
+                    @Directive({
+                        selector:'highlight',
+                        providers:[]
+                    })
+                    class HighlightDirective{
+                        //what should the directive change on its hsot-element
+                        //is programmed here....     
+                    }
+
+                    <p highlight></p>
+
+    Pipe
+                    1. a pipe is used to transform or format the data jsut before it is rendered.
+
+                    @Pipe({
+                        name:'',
+                        providers:[]
+                    })
+                    class ToWordsPipe{
+
+                    }
+
+    Service
+                    1. provide bussiness logic or validations or rest-api calls
+
+                    @Injectable({
+                        providedIn:'root'
+                    })
+                    class EmployeeService{
+
+                    }
+    
