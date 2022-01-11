@@ -23,6 +23,7 @@ Angular 11 Pre-requsite Skill
         setTimeout,setInterval,Promise, async and await keywords
         cosnt, let and var
         Callbacks, prototypes, closure, arrow functions
+        ES6 Modules
 
     NodeJS
         npm
@@ -239,3 +240,42 @@ Angular 11 Archetecture
 
                     }
     
+Angular CLI
+------------------------------------------------------------------------------------
+
+    Angular Command Line Interface , is a tool used to mange and work
+    with the angular project with more ease.
+
+    ng --version
+
+    ng new proj-name                creating a new angular project
+
+    cd proj-name
+
+        ng g module module-name 
+        ng g component component-name 
+        ng g pipe pipe-name 
+        ng g directve directive-name 
+        ng g service service-name 
+        ng g guard guard-name 
+        ng g interceptor interceptor-name 
+        ng g interface model-name 
+        ng g class class-name 
+
+        use '--skipTests' flag with the 'ng g' command to avoid the auto-generated test case files.
+
+        ng serve --port portNumber      compiles .ts to .js, bundles them into a pack, hosts them
+                                        on a Angular develpment server and luanches the app
+                                        on a browser.
+
+        ng build                        compiles .ts to .js, bundles them into a pack, and that
+                                        generate bundles are saved in 'dist' folder. we can then
+                                        deploy them on to any production web server.
+
+        ng test                         compiles .ts to .js, bundles them into a pack, and then
+                                        executes all test cases one by one. 
+
+
+
+
+        
