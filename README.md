@@ -264,7 +264,7 @@ Angular CLI
 
         use '--skipTests' flag with the 'ng g' command to avoid the auto-generated test case files.
 
-        ng serve --port portNumber      compiles .ts to .js, bundles them into a pack, hosts them
+        ng serve --port portNumber -o   compiles .ts to .js, bundles them into a pack, hosts them
                                         on a Angular develpment server and luanches the app
                                         on a browser.
 
@@ -275,7 +275,52 @@ Angular CLI
         ng test                         compiles .ts to .js, bundles them into a pack, and then
                                         executes all test cases one by one. 
 
+Data Binding
+---------------------------------------------------------------------------------------
 
+    is linking the data or methods held by the component with its html template.
 
+    1. Interpolation
+
+            is rendering the content of a typescript expression into the template
+
+            {{angular-expression}}
+
+            <p>{{greetingStatement}}</p>
+
+            <td>{{a+b+c+d}}</td>
+
+    2. One-Way Binding
+        a. attribute binding
+
+            assigning the value of an angualr expression to a html attribute
+
+            [attribute]="angular-expression"
+
+            <table height="100%"></table>
+            <table [height]="tableHeight"></table>
+
+        b. event binding
+
+            assinging a method of a component to a event handler.
+
+            (event-directive-name)="method()"
+
+            <button (click)="doSoemthing()"></button>
+
+            Html Event Attributes           Angular Event Directives
+            --------------------------------------------------------------
+                onclick                         click
+                onload                          load
+                onblur                          blur
+                onfocus                         focus
+                onchange                        change
+                onmouseover                     mouseover
+                ...............
+                onsubmit                        ngSubmit
+
+        c. style binding
+            
+    3. Two-Way Binding
 
         

@@ -1,0 +1,18 @@
+#logo{
+    margin:10px;
+    width:350px;
+}
+
+.bordered{
+    border:2px solid black;
+}
+
+.centered{
+    display:block;
+    margin:auto;
+}
+
+.roundCornered{
+    border-radius: 50px;
+}
+
