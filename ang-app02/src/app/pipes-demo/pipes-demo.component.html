@@ -1,0 +1,39 @@
+<section>
+    <h4>Pipes Demo</h4>
+
+    <p>
+        {{strData}} <br />
+        {{strData|lowercase}} <br />
+        {{strData|uppercase}} <br />
+        {{strData|titlecase}}
+    </p>
+
+    <p>
+        {{numData}} <br />
+        {{numData|number:'10.10-10'}} <br />
+        {{numData|number:'3.0-0'}} <br />
+        {{numData|number:'3.1-2'}} <br />
+        {{numData|percent}}
+    </p>
+
+    <p>
+        {{numData|currency:'INR'}} <br />
+        {{numData|currency:'USD'}} <br />
+        {{numData|currency:'GBP'}} <br />
+        {{numData|currency:'JPY'}} <br />
+        {{numData|currency:'AUD'}} <br />
+        {{numData|currency:'XYZ'}}
+    </p>
+
+    <p>
+        {{dateData}}<br />
+        {{dateData|date:'short'}}<br />
+        {{dateData|date:'long'}}<br />
+        {{dateData|date:'dd-MM-yyyy'}}<br />
+        {{dateData|date:'dd-MMM-yyyy'}}<br />
+        {{dateData|date:'dd-MMMM-yyyy'}}<br />
+        {{dateData|date:'dd-MMMM-yyyy hh:mm:ss aa'}}<br />
+        {{dateData|date:'dd-MMMM-yyyy HH:mm:ss'}}
+    </p>
+
+</section>

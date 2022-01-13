@@ -320,7 +320,52 @@ Data Binding
                 onsubmit                        ngSubmit
 
         c. style binding
+
+            assign an angular expression to a css-property
+
+            [style.cssProperty]="angular-expression"
+
+            assign a json object of classes to the 'class' attribute
             
+            [class]="{'class-name':true,'class2-name':false......}"
+
     3. Two-Way Binding
+
+        used to bind a field of the component to a input-element.
+
+        a built-in direcive 'ngModel' is to be applied on the input elements for tow-way data binding
+
+        'ngModel' directive belongs to 'FormsModule' from '@angular/forms'
+
+        [(ngModel)]="field"
+
+        
+Pipe
+---------------------------------------------------------------------------------------
+
+    1. a pipe is used to transform or format the data jsut before it is rendered.
+
+
+        inbuilt pipes
+
+            lowercase
+            uppercase
+            number
+            percent
+            date
+            currency
+            json
+            async
+
+        custom pipes
+
+                    @Pipe({
+                        name:'',
+                        providers:[]
+                    })
+                    class ToWordsPipe{
+
+                    }
+
 
         

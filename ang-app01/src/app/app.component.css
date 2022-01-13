@@ -1,6 +1,6 @@
-#logo{
-    margin:10px;
+img{
     width:350px;
+    margin:10px;
 }
 
 .bordered{
@@ -9,7 +9,8 @@
 
 .centered{
     display:block;
-    margin:auto;
+    margin-left:auto;
+    margin-right: auto;
 }
 
 .roundCornered{

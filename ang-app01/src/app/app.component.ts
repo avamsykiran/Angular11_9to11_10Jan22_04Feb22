@@ -11,6 +11,11 @@ export class AppComponent {
   imgs:string[];
   imgIndex:number;
 
+  imgWidth:number;
+  applyCenter:boolean;
+  applyBorder:boolean;
+  applyRoundCorner:boolean;
+
   constructor(){
     this.title="My First Angular Project";
     this.imgs=[
@@ -19,6 +24,11 @@ export class AppComponent {
       "assets/images/w3.png"
     ];
     this.imgIndex=0;
+
+    this.imgWidth=500;
+    this.applyBorder=true;
+    this.applyCenter=true;
+    this.applyRoundCorner=false;
   }
 
   toggleLogo(){
