@@ -359,13 +359,85 @@ Pipe
 
         custom pipes
 
-                    @Pipe({
-                        name:'',
-                        providers:[]
-                    })
-                    class ToWordsPipe{
+            @Pipe({
+                name:'',
+                providers:[]
+            })
+            class ToWordsPipe implements PipeTransform{
+                transform(value:any,....) any{
+                    //
+                }
+            }
 
-                    }
+Directives
+---------------------------------------------------------------------------------------
+
+    1. Components               
+    2. Attribute Directives
+
+            NgClass
+            NgModel
+            RouterLink
+            Click
+            DblClick
+            MouseOver
+            .............etc
+
+    3. Strucutral Directives
+
+        add/remove dom elements
+
+            *ngIf
+            *ngFor
+            ngSwitch  , *ngSwitchCase
+
+Services
+---------------------------------------------------------------------------------------
+
+    is a class that offers bussiness logic like computations/ rest api calls ....etc
+
+    Service are injectable objects. The developer need not crearte a object ot the
+    service class, but the angular Injectors will maintain a list of services objects 
+    and will supply them to wherever and whenvever needed.
+
+    @Injectable({
+        providedIn:'root'
+    })
+    class MyService{
+        .............
+    }
 
 
-        
+    inside a pipe/directive/component / another service .....
+
+            constructor(private serviceObj:MyService){
+
+            }
+
+    Injectors Hirarchy
+
+        every angular resoruce ahs its own injector
+
+        AppModule                   root-injector       will have an object of each service in the app
+            Component1                  c1-injector     will have an object of each service that is 
+                                                        listed in the providers:[] section of the Component1
+            Component2                  c2-injector     will have an object of each service that is 
+                                                        listed in the providers:[] section of the Component2
+            SubModule1                  sm1-injector
+                Component3                  c3-injector
+                Component4                  c4-injector
+
+Typescript interfaces
+---------------------------------------------------------------------------------------
+
+    an interfaces is a tyep that cna have data memebers and methods-without-implemenation.
+
+    the fields and methods are by defautl public
+
+    and the fields need not be initialized unlike fields of a class.
+
+    interfaces are very frequently used to define models in angular.
+
+    this facilitates using JSON notation of object creation easy.
+
+    

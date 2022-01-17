@@ -1,0 +1,19 @@
+<section>
+    <h4>Structural Directives Demo</h4>
+    <form>
+        <div>
+            <label>User Name: </label>
+            <input type="text" name="unm" [(ngModel)]="userName" />
+        </div>
+        <div>
+            <label>Title: </label>
+            <select name="s1" [(ngModel)]="title">
+                <option *ngFor="let t of titles" [value]="t">{{t}}</option>
+            </select>
+        </div>
+    </form>
+
+    <div *ngIf="userName!=null && userName.length>0 && title!=null && title.length>0">
+       <strong> Hello {{title}}.{{userName}} </strong>
+    </div>
+</section>
