@@ -430,14 +430,16 @@ Services
 Typescript interfaces
 ---------------------------------------------------------------------------------------
 
-    an interfaces is a tyep that cna have data memebers and methods-without-implemenation.
+    an interfaces is a type that can have data memebers and methods-without-implemenation.
 
-    the fields and methods are by defautl public
+    the fields and methods are by default public
 
     and the fields need not be initialized unlike fields of a class.
 
     interfaces are very frequently used to define models in angular.
 
-    this facilitates using JSON notation of object creation easy.
+    this facilitates using type-safty for JSON objects.
 
-    
+
+
+   

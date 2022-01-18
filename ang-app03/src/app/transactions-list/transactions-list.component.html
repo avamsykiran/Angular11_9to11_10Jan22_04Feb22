@@ -1,0 +1,36 @@
+<section class="container-fluid p-4">
+    <table class="table table-bordered table-striped">
+        <thead>
+            <th>Txn#</th>
+            <th>Header</th>
+            <th>Credit</th>
+            <th>Debit</th>
+            <th>Action</th>
+        </thead>
+        <tbody>
+            <tr *ngFor="let t of txns">
+                <td class="text-end">{{t.id}}</td>
+                <td>{{t.header}}</td>
+                <td class="text-end">{{t.type==="CREDIT"?t.amount:undefined}}</td>
+                <td class="text-end">{{t.type==="DEBIT"?t.amount:undefined}}</td>
+                <td>
+                    <button type="button" class="btn btn-sm btn-secondary">EDIT</button>
+                    <button type="button" class="btn btn-sm btn-danger">DELETE</button>
+                </td>
+            </tr>
+        </tbody>
+        <tfoot>
+            <tr>
+                <th colspan="2">Total</th>
+                <th class="text-end">{{txnSmry.totalCredit}}</th>
+                <th class="text-end">{{txnSmry.totalDebit}}</th>
+                <th></th>
+            </tr>
+            <tr>
+                <th colspan="3">Balance</th>
+                <th class="text-end">{{txnSmry.balance}}</th>
+                <th></th>
+            </tr>
+        </tfoot>
+    </table>
+</section>
