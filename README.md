@@ -440,6 +440,37 @@ Typescript interfaces
 
     this facilitates using type-safty for JSON objects.
 
+Parent and Child Components
+------------------------------------------------------------------------------
 
+    Parent compnent can pass data through an attribute of a child component
 
-   
+    @Component({
+        selector:'app-child',
+        ......
+    })
+    class Child {
+        @Input()
+        field:type;
+
+        ...............
+    }
+
+    <app-child field=""></app-child>
+
+    A child can pass data back to the parent or notify the parent about an action though event-attribues.
+
+     @Component({
+        selector:'app-child',
+        ......
+    })
+    class Child {
+        @Output()
+        eventName:EventEmitter<typeOfData>;
+
+        ...............
+    }
+
+    <app-child (evetnName)="eventHandlingFunctionOfParentComponent($event)"></app-child>
+
+    The content of a child can be passed by the parent though <ng-content></ng-content>

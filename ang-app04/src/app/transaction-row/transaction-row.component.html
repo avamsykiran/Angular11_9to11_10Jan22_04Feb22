@@ -1,0 +1,10 @@
+<div class="row p-2">
+    <div class="col-2 text-end">{{txn.id}}</div>
+    <div class="col">{{txn.header}}</div>
+    <div class="col-2 text-end">{{txn.type==="CREDIT"?txn.amount:undefined}}</div>
+    <div class="col-2 text-end">{{txn.type==="DEBIT"?txn.amount:undefined}}</div>
+    <div class="col-2 text-center">
+        <button type="button" class="btn btn-sm btn-secondary">EDIT</button>
+        <button type="button" class="btn btn-sm btn-danger" (click)="raiseDeleteEvent()">DELETE</button>
+    </div>
+</div>

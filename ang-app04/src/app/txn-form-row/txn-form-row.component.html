@@ -1,0 +1,19 @@
+<form (ngSubmit)="raiseFormSubmited()">
+    <div class="row p-2">
+        <div class="col-2 text-center">
+            <input type="number" name="txnid" [(ngModel)]="txn.id" class="form-control" />
+        </div>
+        <div class="col text-center">
+            <input type="text" name="header" [(ngModel)]="txn.header" class="form-control" />
+        </div>
+        <div class="col-2 text-center" (click)="changeType('CREDIT')">
+            <input type="number" name="creditAmount" [(ngModel)]="txn.amount" *ngIf="txn.type==='CREDIT'" class="form-control" />
+        </div>
+        <div class="col-2 text-center" (click)="changeType('DEBIT')">
+            <input type="number" name="debitAmount" [(ngModel)]="txn.amount" *ngIf="txn.type==='DEBIT'" class="form-control" />
+        </div>
+        <div class="col-2 text-center">
+            <button class="btn btn-sm btn-primary">ADD</button>
+        </div>
+    </div>
+</form>
