@@ -3,4 +3,5 @@ export interface Transaction {
     header:string;
     amount:number;
     type:string;
+    isEditable?:boolean;
 }

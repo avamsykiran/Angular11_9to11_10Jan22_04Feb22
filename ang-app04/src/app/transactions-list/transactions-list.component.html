@@ -7,11 +7,28 @@
             <div class="col-2 text-center"><strong>Debit</strong></div>
             <div class="col-2 text-center"><strong>Action</strong></div>
         </div>
-        <app-txn-form-row (formSubmited)="addTxn($event)"></app-txn-form-row>
-        <app-transaction-row 
-            *ngFor="let t of txns" 
-            [txn]="t" 
-            (deleteBtnClick)="deleteTxn($event)"></app-transaction-row>
+
+        <app-txn-form-row 
+            [isNew]="true"
+            (formSubmited)="addTxn($event)">
+        </app-txn-form-row>
+        
+        <ng-container *ngFor="let t of txns">
+            <app-transaction-row 
+                *ngIf="!t.isEditable"
+                [txn]="t" 
+                (deleteBtnClick)="deleteTxn($event)"
+                (editBtnClick)="editTxn($event)">
+            </app-transaction-row>
+            <app-txn-form-row 
+                *ngIf="t.isEditable"
+                [isNew]="false"
+                [txn]="t" 
+                (formSubmited)="updateTxn($event)"
+                (cancelEdit)="cancelEditTxn($event)">
+            </app-txn-form-row>
+        </ng-container>
+        
         <app-txn-summary-section [txnSmry]="txnSmry"></app-txn-summary-section>
     </div>
 </section>

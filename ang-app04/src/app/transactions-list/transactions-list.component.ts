@@ -31,4 +31,19 @@ export class TransactionsListComponent  {
     this.txnService.add(txn);
     this.loadData();
   }
+
+  editTxn(id:number){
+    this.txns = this.txns?.map(t => t.id!==id?t:{...t,isEditable:true});
+  }
+
+  cancelEditTxn(id:number){
+    this.txns = this.txns?.map(t => t.id!==id?t:{...t,isEditable:undefined});
+  }
+
+  updateTxn(txn:Transaction){
+    let t = {...txn,isEditable:undefined};
+    this.txnService.update(t);
+    this.loadData();
+  }
+
 }
