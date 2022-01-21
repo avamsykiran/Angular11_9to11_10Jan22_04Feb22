@@ -1,0 +1,23 @@
+<div class="row border-priamry m-4">
+    <div class="col-3 p-2">
+        <form (ngSubmit)="startSeries()">
+            <div>
+                <label>Lower Limit</label>
+                <input type="number" name="lb" [(ngModel)]="lb" class="form-control" />
+            </div>
+            <div>
+                <label>Upper Limit</label>
+                <input type="number" name="ub" [(ngModel)]="ub" class="form-control" />
+            </div>
+            <div class="d-grid">
+                <button class="btn btn-primary btn-block" [disabled]="isJobInProgress">Generate Series</button>
+            </div>
+        </form>        
+    </div>
+    <div class="col p-2">
+        <div class="border-secondary p-4" *ngIf="results && results.length>0">
+            <span *ngFor="let n of results">{{n}} </span>
+        </div>
+        <p class="alert alert-danger p-4" *ngIf="err">{{err}}</p>
+    </div>
+</div>

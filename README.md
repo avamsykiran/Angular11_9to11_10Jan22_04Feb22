@@ -474,3 +474,48 @@ Parent and Child Components
     <app-child (evetnName)="eventHandlingFunctionOfParentComponent($event)"></app-child>
 
     The content of a child can be passed by the parent though <ng-content></ng-content>
+
+RxJS
+---------------------------------------------------------------------------
+
+    Reactive JavaScript.
+
+    work with asynchronous programming...
+
+    bgOperation (async code) has to pass info to the fgAppliation like
+        1. the periodically generated data if any
+        2. error that it might have encountered, or
+        3. a signal that the bgJob is done completly.
+
+
+    Observable
+            is a class from 'rxjs'.
+            it takes a bgJob and after initiating its execution, the bgJob is observed
+            for three events:
+                data emition
+                error emition
+                completion signal
+            and the fgApp is notified about these events.
+
+    A background job or an asynchronus job is any fucntion that has
+    asynchronous code and must accpet 'Observer' object as param.
+
+    Observer is a class from 'rxjs' and has three methods:
+        next(data)      is used to emit values from bgJob
+        error(err)      is used to emit errors from bgJon
+        complete()      is used to indicate successful completion of the bgJob.
+
+    let bgJob = (observer:Observer) => {
+        //asynchornous code and use observer to perform the events.
+    };
+    
+    let ob = new Observable(bgJob);
+
+    //as and when the observable is subscribed the bgJob gets called.
+    //this subscription happedn in the fgApp
+    ob.subcribe(
+        val => {},      //gets executed in response to observer.next(val)
+        err => {},      //gets executed in response to observer.error(err)
+        () => {}        //gets executed in response to observer.complete()
+    );
+
