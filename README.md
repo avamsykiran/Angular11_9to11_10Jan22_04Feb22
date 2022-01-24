@@ -519,3 +519,94 @@ RxJS
         () => {}        //gets executed in response to observer.complete()
     );
 
+
+    rxjs operators
+        these are method used to pipe a few more processing to a exiting observable
+        and get a new observable.
+
+
+            ob1: raw ingradiants -> mixes them as soft drink -> outputs a pipeline of bottles
+            ob2: a pipeline of bottles -> are labeled -> pipeline of labeled bottles
+            ob3: a pipeline of labeled bottles -> collect 10 bottles and seal as a single pack -> pipeline of packs
+                .....etc
+
+        map             tranform each ele from old observable into a new ele of the new observable
+        filter          filter ele from old observable based on a predicate function, gives anew observable of filtered vals.
+        last            to skip all the ele of the old observable and get a new observable having only the last ele.
+        tap             not going to change the observable but exeute an acion on once for each ele in the observable.
+        ...etc
+
+
+        let ob1 = generateSeries(lb,ub);
+        
+        let ob2 =  ob1.pipe(
+                        filter(x => x%2==0),
+                        map(x => x*x),
+                        tap(x => console.log(x)),
+                        last()
+                    );
+
+Angular LifeCycle Hooks
+---------------------------------------------------------------------------------------
+
+    constructor()
+    ngOnInit()                          OnInit interface
+    ngOnChanges()                       OnChanges interface
+    ngDoCheck()                         DoCheck interface
+        ngAfterContentInit()            AfterContentInit interface
+        ngAfterContentCheck()           AfterContentCheck interface
+        ngAfterViewInit()               AfterViewInit interface
+        ngAfterViewChecked()            AfterViewChecked interface
+    ngOnDestroy()                       OnDestroy interface
+
+
+        ngOnChanges()	        Respond when Angular (re)sets data-bound input properties. 
+                                The method receives a SimpleChanges object of current and previous property values.
+                                Called before ngOnInit() and whenever one or more data-bound input properties change.
+
+        ngOnInit()	            Initialize the directive/component after Angular first displays 
+                                the data-bound properties and sets the directive/component's input properties.
+                                Called once, after the first ngOnChanges().
+
+        ngDoCheck()	            Detect and act upon changes that Angular can't or won't detect on its own.
+                                Called during every change detection run, immediately after ngOnChanges() and ngOnInit().
+
+        ngAfterContentInit()	Respond after Angular projects external content into the component's view.
+                                Called once after the first ngDoCheck().
+
+        ngAfterContentChecked()	Respond after Angular checks the content projected into the component.
+                                Called after the ngAfterContentInit() and every subsequent ngDoCheck().
+
+        ngAfterViewInit()	    Respond after Angular initializes the component's views and child views.
+                                Called once after the first ngAfterContentChecked().
+
+        ngAfterViewChecked()	Respond after Angular checks the component's views and child views.
+                                Called after the ngAfterViewInit and every subsequent ngAfterContentChecked().
+
+        ngOnDestroy	            Cleanup just before Angular destroys the directive/component. 
+                                Unsubscribe Observables and detach event handlers to avoid memory leaks.
+                                Called just before Angular destroys the directive/component.
+
+HttpClientModule
+------------------------------------------------------------------------------------------------
+
+    is used to consume or talk to a rest-api.
+
+    HttpClient  Service
+        get(restEndPoint)   : Observable<T>
+        delete(restEndPoint)   : Observable<Void>
+        post(restEndPoint,reqeustBody)   : Observable<T>
+        put(restEndPoint,reqeustBody)   : Observable<T>
+
+json-server
+-------------------------------------------------------------------------------------------------
+
+    a json-server is a javascript tool that takes a '.json' file as database and
+    generates fake rest-api on the entities in the given '.json' file.
+
+    npm install json-server --save
+
+    json-server --port 8888 --watch data.json
+
+    
+
