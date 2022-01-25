@@ -608,5 +608,68 @@ json-server
 
     json-server --port 8888 --watch data.json
 
-    
+Angular Forms
+-------------------------------------------------------------------------------------------------
 
+         Reactive Forms /
+        Model Driven Forms                          Template Driven Forms
+
+    ReactiveFormsModule                         FormsModeule
+        FormControl                                 NgModel
+        FormGroup                                   NgForm
+
+    Constructed and Validatiosn                 Constructed and Validations are given
+    are configured Programatically              on the template
+
+    These forms are controllable                These forms are not that controllable from code,
+    more from the program                       and not easy to test.
+    and are easy to test.
+
+    These forms are used most of                These form are used seldom, and are used incases
+    the times and can offer complicated         where we have not more than one or two fields
+    data handling                               to work with.
+    
+    The data model is within the                The data model object has to be declared and mapped
+    FormGroup, we dont need any                 using 'ngModel'.
+    seperate model object.
+
+Routing
+-------------------------------------------------------------------------------------------------
+
+    enables to navigate from one component to another component.
+
+    RouterModule
+
+        Route                           used to map a path to a component.
+                                            path=""
+                                            component=""
+                                            redirect=""
+                                            children=[]
+                                            canLoad=[]
+                                            canActivate=[]
+                                            canDeactivate=[]
+                                            ...etc
+
+        Routes                          is an array of Route objects.
+
+        forRoot(routes:Routes)          load the routes on the ROOT MODULE
+        forChild(routes:Routes)         load the routes on a sub-module only.
+
+        routerLink                      is a directive that cna be used on a '<a></a>' 
+                                        eleemnt instead of 'href' attribute.
+
+        routerLinkActive                is a directive that cna be used on a '<a></a>' 
+                                        eleemnt, takes a 'css-class' and applys that class when
+                                        the current <a></a> is active.
+
+        <router-outlet></router-outlet> is a component that is replaced by 
+                                        the current active component.
+
+                                        app.component.html
+                                        ---------------------------------
+                                            <app-header></app-header>
+                                            <app-nav-bar></app-nav-bar>
+                                            <router-outlet></router-outlet>
+                                            <app-footer></app-footer>
+
+        

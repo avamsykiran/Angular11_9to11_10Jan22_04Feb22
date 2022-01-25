@@ -1,0 +1,46 @@
+<form (ngSubmit)="raiseFormSubmited()" #txnForm="ngForm">
+    <div class="row p-2">
+        <div class="col-2 text-center">
+            <input type="number" name="txnid" [(ngModel)]="txn.id" 
+                class="form-control" [readonly]="!isNew"
+                required #tid="ngModel"/>
+            <div *ngIf="tid.invalid && (tid.touched || tid.dirty)">
+                <span *ngIf="tid.errors?.required">this field is mandate</span>
+            </div>
+        </div>
+        <div class="col text-center">
+            <input type="text" name="header" [(ngModel)]="txn.header" 
+                class="form-control" required minlength="5" #hdr="ngModel"/>
+            <div *ngIf="hdr.invalid && (hdr.touched || hdr.dirty)">
+                <span *ngIf="hdr.errors?.required">this field is mandate</span>
+                <span *ngIf="hdr.errors?.minlength">a minimum of 5 chars expected</span>
+            </div>
+        </div>
+        <div class="col-2 text-center" (click)="changeType('CREDIT')">
+            <ng-container *ngIf="txn.type==='CREDIT'">
+                <input type="number" name="creditAmount" [(ngModel)]="txn.amount" 
+                    class="form-control" required #camt="ngModel"/>
+                <div *ngIf="camt.invalid && (camt.touched || camt.dirty)">
+                    <span *ngIf="camt.errors?.required">this field is mandate</span>
+                </div>
+            </ng-container>           
+        </div>
+        <div class="col-2 text-center" (click)="changeType('DEBIT')">
+            <ng-container *ngIf="txn.type==='DEBIT'">
+                <input type="number" name="debitAmount" [(ngModel)]="txn.amount" 
+                 class="form-control" required #damt="ngModel"/>
+                <div *ngIf="damt.invalid && (damt.touched || damt.dirty)">
+                    <span *ngIf="damt.errors?.required">this field is mandate</span>
+                </div>
+            </ng-container>
+        </div>
+        <div class="col-2 text-center" *ngIf="isNew">
+            <button class="btn btn-sm btn-primary" [disabled]="txnForm.invalid">ADD</button>
+        </div>
+        <div class="col-2 text-center" *ngIf="!isNew">
+            <button class="btn btn-sm btn-primary" [disabled]="txnForm.invalid">SAVE</button>
+            <button class="btn btn-sm btn-danger" type="button" 
+                (click)="raiseCancelEvent()">CANCEL</button>
+        </div>
+    </div>
+</form>
