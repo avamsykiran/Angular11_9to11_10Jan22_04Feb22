@@ -1,1 +1,34 @@
-<p>users-list works!</p>
+<section class="container-fluid p-4">
+
+    <div class="alert alert-info p-4" *ngIf="!users && !errMsg">
+        <strong>Please wait while loading data!</strong>
+    </div>
+
+    <div class="alert alert-danger p-4" *ngIf="errMsg">
+        <strong>{{errMsg}}</strong>
+    </div>
+
+    <table class="table table-bordered table-striped table-hover" *ngIf="users && users.length>0">
+        <thead>
+            <tr>
+                <th>User#</th>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Mobile</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let u of users">
+                <td>{{u.id}}</td>
+                <td>{{u.name}}</td>
+                <td>{{u.email}}</td>
+                <td>{{u.mobile}}</td>
+                <td>
+                    <a [routerLink]="['/users','edit',u.id]" class="btn btn-sm btn-primary">EDIT</a>
+                    <a [routerLink]="['/txns',u.id]" class="btn btn-sm btn-secondary">STATEMENT</a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>

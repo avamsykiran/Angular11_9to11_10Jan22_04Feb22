@@ -3,5 +3,6 @@ export interface Transaction {
     header:string;
     amount:number;
     type:string;
+    userId:number;
     isEditable?:boolean;
 }

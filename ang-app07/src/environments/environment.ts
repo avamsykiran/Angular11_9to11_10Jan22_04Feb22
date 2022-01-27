@@ -5,6 +5,7 @@
 export const environment = {
   production: false,
   appTitle:"BudgetTracker (dev mode)",
+  usersUrl:"http://localhost:8888/users",
   txnsUrl:"http://localhost:8888/txns"
 };
 

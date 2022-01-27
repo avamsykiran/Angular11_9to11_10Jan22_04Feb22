@@ -1,40 +1,46 @@
 {
+  "users": [
+    {
+      "id": 1,
+      "name": "Vamsy Kiran",
+      "email": "vamsy@gmail.com",
+      "mobile": "9052224753"
+    },
+    {
+      "id": 2,
+      "name": "Sagar",
+      "email": "sagar@gmail.com",
+      "mobile": "9948016004"
+    }
+  ],
   "txns": [
     {
       "id": 1,
       "header": "Salary",
       "amount": 67000,
-      "type": "CREDIT"
+      "type": "CREDIT",
+      "userId": 1
     },
     {
       "id": 2,
       "header": "House Rent",
       "amount": 7000,
-      "type": "DEBIT"
+      "type": "DEBIT",
+      "userId": 1
     },
     {
       "id": 3,
-      "header": "FD Interest",
-      "amount": 3000,
-      "type": "CREDIT"
+      "header": "Salary",
+      "amount": 47000,
+      "type": "CREDIT",
+      "userId": 2
     },
     {
       "id": 4,
-      "header": "Car Fuel",
-      "amount": 3000,
-      "type": "DEBIT"
-    },
-    {
-      "id": 5,
-      "header": "Mobile and Net Bill",
-      "amount": 2000,
-      "type": "DEBIT"
-    },
-    {
-      "header": "Birthday party",
+      "header": "House Rent",
       "amount": 3000,
       "type": "DEBIT",
-      "id": 6
+      "userId": 2
     }
   ]
 }

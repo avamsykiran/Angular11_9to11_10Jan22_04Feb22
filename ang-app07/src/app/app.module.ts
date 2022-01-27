@@ -1,5 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { Component, NgModule } from '@angular/core';
 import { FormsModule,ReactiveFormsModule } from '@angular/forms';
 import { RouterModule, Routes } from '@angular/router';
 import {HttpClientModule} from '@angular/common/http';
@@ -14,13 +14,23 @@ import { UsersListComponent } from './users-list/users-list.component';
 import { UsersFormComponent } from './users-form/users-form.component';
 
 /*
-  http://localhost:9999/users     UsersComponent
-  http://localhost:9999/txns/1    TransactionListComponent with txns of user#userId=1
+  http://localhost:9999/              UsersComponent + UsersListComponent
+  http://localhost:9999/users         UsersComponent + UsersListComponent
+  http://localhost:9999/users/list    UsersComponent + UsersListComponent
+  http://localhost:9999/users/new     UsersComponent + UsersFormComponent
+  http://localhost:9999/users/edit/1  UsersComponent + UsersFormComponent with user#1 details
+  http://localhost:9999/txns/1        TransactionListComponent with txns of user#userId=1
 */
 
 const routes:Routes = [
-  {path:'users',component:UsersComponent},
-  {path:'txns/{userId}',component:TransactionsListComponent}
+  {path:'',pathMatch:'full',redirectTo:'users'},
+  {path:'users',component:UsersComponent,children:[
+    {path:'',pathMatch:'full',redirectTo:'list'},
+    {path:'list',component:UsersListComponent},
+    {path:'new',component:UsersFormComponent},
+    {path:'edit/:userId',component:UsersFormComponent}
+  ]},
+  {path:'txns/:userId',component:TransactionsListComponent}
 ];
 
 @NgModule({

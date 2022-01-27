@@ -672,4 +672,11 @@ Routing
                                             <router-outlet></router-outlet>
                                             <app-footer></app-footer>
 
-        
+        ActivatedRoute                  is a inbuilt service used to read data like
+                                            query params,
+                                            path variables,
+                                            current url ...etc of the current route
+
+        Router                          is a inbuilt service offers
+                                            navigateByUrl(url:string)
+                                            navigate([])
