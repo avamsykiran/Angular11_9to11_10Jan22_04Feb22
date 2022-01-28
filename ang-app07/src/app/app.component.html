@@ -1,6 +1,12 @@
 <nav class="navbar navbar-dark bg-dark navbar-expand-sm">
   <div class="container-fluid">
-    <a href="#" class="navbar-brand">{{title}}</a>
+    <a routerLink="/" class="navbar-brand">{{title}}</a>
+
+    <ul class="navbar-nav me-auto">
+      <li class="nav-item">
+        <a class="nav-link" routerLinkActive="active" routerLink="/">Users</a>
+      </li>
+    </ul>
   </div>
 </nav>
 <router-outlet></router-outlet>

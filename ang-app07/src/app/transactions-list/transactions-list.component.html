@@ -1,5 +1,7 @@
 <section class="container-fluid p-4">
 
+    <h3>{{currentUser.name}}'s Statement</h3>
+
     <div class="alert alert-info p-4" *ngIf="!txns && !errMsg">
         <strong>Please wait while loading data!</strong>
     </div>

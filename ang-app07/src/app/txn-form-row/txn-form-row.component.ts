@@ -21,7 +21,7 @@ export class TxnFormRowComponent  {
   cancelEdit:EventEmitter<number>;
 
   constructor() {
-    this.txn={id:0,header:'',type:'',amount:0,userId:0};
+    this.txn={id:undefined,header:'',type:'',amount:0,userId:0};
     this.isNew=true;
     this.formSubmited=new EventEmitter<Transaction>();
     this.cancelEdit=new EventEmitter<number>();
@@ -33,7 +33,7 @@ export class TxnFormRowComponent  {
 
   raiseFormSubmited(){
     this.formSubmited.emit(this.txn);
-    this.txn={id:0,header:'',type:'',amount:0};
+    this.txn={id:undefined,header:'',type:'',amount:0,userId:0};
   }
 
   raiseCancelEvent(){

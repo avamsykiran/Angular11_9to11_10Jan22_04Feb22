@@ -8,9 +8,15 @@
     },
     {
       "id": 2,
-      "name": "Sagar",
+      "name": "Sagar Guru Charan",
       "email": "sagar@gmail.com",
       "mobile": "9948016004"
+    },
+    {
+      "name": "Suseela",
+      "email": "suseela@gmail.com",
+      "mobile": "9999999999",
+      "id": 3
     }
   ],
   "txns": [
@@ -24,7 +30,7 @@
     {
       "id": 2,
       "header": "House Rent",
-      "amount": 7000,
+      "amount": 8000,
       "type": "DEBIT",
       "userId": 1
     },
@@ -41,6 +47,20 @@
       "amount": 3000,
       "type": "DEBIT",
       "userId": 2
+    },
+    {
+      "header": "Birthday Party",
+      "type": "DEBIT",
+      "amount": 6500,
+      "userId": 1,
+      "id": 5
+    },
+    {
+      "header": "Grocessary",
+      "type": "DEBIT",
+      "amount": 5600,
+      "userId": 2,
+      "id": 6
     }
   ]
 }

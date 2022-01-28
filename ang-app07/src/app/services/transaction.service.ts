@@ -20,6 +20,10 @@ export class TransactionService {
     return this.hc.get<Transaction[]>(this.endPoint);
   }
 
+  getAllByUserId(userId:number):Observable<Transaction[]>{
+    return this.hc.get<Transaction[]>(`${this.endPoint}?userId=${userId}`);
+  }
+
   getById(id:number):Observable<Transaction>{
     return this.hc.get<Transaction>(`${this.endPoint}/${id}`);
   }

@@ -2,11 +2,7 @@
     <div class="row p-2">
         <div class="col-2 text-center">
             <input type="number" name="txnid" [(ngModel)]="txn.id" 
-                class="form-control" [readonly]="!isNew"
-                required #tid="ngModel"/>
-            <div *ngIf="tid.invalid && (tid.touched || tid.dirty)">
-                <span *ngIf="tid.errors?.required">this field is mandate</span>
-            </div>
+                class="form-control" [readonly]="true"/>
         </div>
         <div class="col text-center">
             <input type="text" name="header" [(ngModel)]="txn.header" 
