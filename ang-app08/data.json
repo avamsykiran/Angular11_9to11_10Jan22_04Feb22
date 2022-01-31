@@ -1,0 +1,80 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "name": "Vamsy Kiran",
+      "email": "vamsy@gmail.com",
+      "mobile": "9052224753",
+      "role":"USER",
+      "password":"password"
+    },
+    {
+      "id": 2,
+      "name": "Sagar Guru Charan",
+      "email": "sagar@gmail.com",
+      "mobile": "9948016004",
+      "role":"USER",
+      "password":"password"
+    },
+    {
+      "name": "Suseela",
+      "email": "suseela@gmail.com",
+      "mobile": "9999999999",
+      "id": 3,
+      "role":"USER",
+      "password":"password"
+    },
+    {
+      "id": 4,
+      "name": "Admin",
+      "email": "admin@gmail.com",
+      "mobile": "9999999999",
+      "role":"ADMIN",
+      "password":"password"
+    }
+  ],
+  "txns": [
+    {
+      "id": 1,
+      "header": "Salary",
+      "amount": 67000,
+      "type": "CREDIT",
+      "userId": 1
+    },
+    {
+      "id": 2,
+      "header": "House Rent",
+      "amount": 8000,
+      "type": "DEBIT",
+      "userId": 1
+    },
+    {
+      "id": 3,
+      "header": "Salary",
+      "amount": 47000,
+      "type": "CREDIT",
+      "userId": 2
+    },
+    {
+      "id": 4,
+      "header": "House Rent",
+      "amount": 3000,
+      "type": "DEBIT",
+      "userId": 2
+    },
+    {
+      "header": "Birthday Party",
+      "type": "DEBIT",
+      "amount": 6500,
+      "userId": 1,
+      "id": 5
+    },
+    {
+      "header": "Grocessary",
+      "type": "DEBIT",
+      "amount": 5600,
+      "userId": 2,
+      "id": 6
+    }
+  ]
+}

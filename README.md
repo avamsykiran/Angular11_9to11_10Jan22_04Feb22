@@ -680,3 +680,30 @@ Routing
         Router                          is a inbuilt service offers
                                             navigateByUrl(url:string)
                                             navigate([])
+
+Modularization
+--------------------------------------------------------------------------------
+  Feature Module
+    Domain: A domain NgModule is organized around a feature, business domain, or user experience.
+    Routed: The top component of the NgModule acts as the destination of a router navigation route.
+    Routing: A routing NgModule provides the routing configuration for another NgModule.
+    Service: A service NgModule provides utility services such as data access and messaging.
+    Widget: A widget NgModule makes a component, directive, or pipe available to other NgModules.
+    Shared: A shared NgModule makes a set of components, directives, and pipes available to other NgModules.
+
+        NgModule	Declarations	Providers	    Exports	        Imported by
+        ------------------------------------------------------------------------------
+        Domain	        Yes	        Rare	        Top component	Another domain, AppModule
+        Routed	        Yes	        Rare	        No	            None
+        Routing	        No	        Yes (Guards)	RouterModule	Another domain (for routing)
+        Service	        No	        Yes	            No	            AppModule
+        Widget	        Yes	        Rare	        Yes	            Another domain
+        Shared	        Yes	        No	            Yes	            Another domain
+
+        ng g module Shared
+        ng g module Widgets
+        ng g module Services --module app.module
+
+        lazy loading a domain module
+        ----------------------------
+        ng g module EntityDoamin --route entity --module app.module
