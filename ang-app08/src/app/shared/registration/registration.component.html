@@ -1,1 +1,45 @@
-<p>registration works!</p>
+<section class="container-fluid p-4">
+    <div class="col-sm-5 mx-auto p-2">
+        <form (ngSubmit)="formSubmitted()" [formGroup]="userForm">
+            <div>
+                <label>User Id</label>
+                <input type="number" formControlName="id" readonly class="form-control" />
+            </div>
+            <div>
+                <label>User Name</label>
+                <input type="text" formControlName="name" class="form-control" />
+                <div class="alert alert-danger" *ngIf="nameFC.invalid && (nameFC.touched || nameFC.dirty)">
+                    <span *ngIf="nameFC.errors?.required">This is a mandate field</span>
+                    <span *ngIf="nameFC.errors?.minlength">A minimum of 5 chars expected</span>
+                    <span *ngIf="nameFC.errors?.maxlength">Not more than 50 chars allowed</span>
+                </div>
+            </div>
+            <div>
+                <label>Email Id</label>
+                <input type="text" formControlName="email" class="form-control" />
+                <div class="alert alert-danger" *ngIf="emailFC.invalid && (emailFC.touched || emailFC.dirty)">
+                    <span *ngIf="emailFC.errors?.required">This is a mandate field</span>
+                    <span *ngIf="emailFC.errors?.email">A valid email id expected</span>
+                </div>
+            </div>
+            <div>
+                <label>Password</label>
+                <input type="password" formControlName="password" class="form-control" />
+                <div class="alert alert-danger" *ngIf="passwordFC.invalid && (passwordFC.touched || passwordFC.dirty)">
+                    <span *ngIf="passwordFC.errors?.required">This is a mandate field</span>
+                </div>
+            </div>
+            <div>
+                <label>Mobile Number</label>
+                <input type="text" formControlName="mobile" class="form-control" />
+                <div class="alert alert-danger" *ngIf="mobileFC.invalid && (mobileFC.touched || mobileFC.dirty)">
+                    <span *ngIf="mobileFC.errors?.required">This is a mandate field</span>
+                    <span *ngIf="mobileFC.errors?.pattern">Only 10 digits are allowed</span>
+                </div>
+            </div>
+            <div class="d-grid">
+                <button class="btn btn-primary" [disabled]="userForm.invalid">Save User</button>
+            </div>
+        </form>
+    </div>
+</section>

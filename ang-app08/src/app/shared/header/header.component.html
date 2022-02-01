@@ -1,1 +1,11 @@
-<p>header works!</p>
+<nav class="navbar navbar-dark bg-dark navbar-expand-sm">
+    <div class="container-fluid">
+        <a routerLink="/" class="navbar-brand">{{brand}}</a>
+
+        <ul class="navbar-nav me-auto">
+            <li class="nav-item" *ngFor="let link of links">
+                <a class="nav-link" routerLinkActive="active" [routerLink]="link[0]">{{link[1]}}</a>
+            </li>
+        </ul>
+    </div>
+</nav>

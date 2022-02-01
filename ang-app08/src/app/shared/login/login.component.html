@@ -1,1 +1,27 @@
-<p>login works!</p>
+<section class="container-fluid p-4">
+    <div class="col-sm-6 mx-auto border p-2">
+        <div class="alert alert-danger" *ngIf="errMsg">
+            <strong>{{errMsg}}</strong>
+        </div>
+        <form (ngSubmit)="formSubmitted()" #f="ngForm">
+            <div>
+                <label>Email </label>
+                <input type="email" name="eid" [(ngModel)]="email" #eid="ngModel" required class="form-control"/>
+                <div class="alert alert-danger" *ngIf="eid.invalid && (eid.touched || eid.dirty)">
+                    <span *ngIf="eid.errors?.required">This is a mandate field</span>
+                    <span *ngIf="eid.errors?.email">A valid email expected</span>
+                </div>
+            </div>
+            <div>
+                <label>Password </label>
+                <input type="password" name="pwd" [(ngModel)]="password" #pwd="ngModel" required class="form-control"/>
+                <div class="alert alert-danger" *ngIf="pwd.invalid && (pwd.touched || pwd.dirty)">
+                    <span *ngIf="pwd.errors?.required">This is a mandate field</span>
+                </div>
+            </div>
+            <div class="d-grid">
+                <button class="btn btn-primary" [disabled]="f.invalid">Sign In</button>
+            </div>
+        </form>
+    </div>
+</section>

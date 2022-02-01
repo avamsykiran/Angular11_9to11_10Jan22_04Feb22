@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-header',
@@ -7,7 +8,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HeaderComponent implements OnInit {
 
-  constructor() { }
+  brand:string;
+  links:string[][];
+
+  constructor() {
+    this.brand=environment.appTitle;
+    this.links=[
+      ["/login","Sign In"],
+      ["/register","Sign Up"]
+    ];
+  }
 
   ngOnInit(): void {
   }
