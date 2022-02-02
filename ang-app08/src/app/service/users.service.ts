@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Observable, Subject } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { environment } from 'src/environments/environment';
 import { User } from '../models/user';
@@ -11,8 +11,11 @@ import { User } from '../models/user';
 export class UsersService {
 
   usrEndPoint:string;
+  userNotifier:Subject<boolean>;
+
   constructor(private hc:HttpClient) {
     this.usrEndPoint=environment.usersUrl;
+    this.userNotifier= new Subject<boolean>();
   }
 
   login(email:string,password:string):Observable<User>{
@@ -26,6 +29,7 @@ export class UsersService {
           throw new Error("Invalid credentials");
         }
         sessionStorage.setItem('user',JSON.stringify({...user,password:undefined}));
+        this.userNotifier.next(true);
         return user;
       })
     );
@@ -34,6 +38,7 @@ export class UsersService {
   logout(){
     sessionStorage.removeItem('user');
     sessionStorage.clear();
+    this.userNotifier.next(false);
   }
 
   currentUser() : User|null{

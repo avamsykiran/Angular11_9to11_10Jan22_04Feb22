@@ -707,3 +707,16 @@ Modularization
         lazy loading a domain module
         ----------------------------
         ng g module EntityDoamin --route entity --module app.module
+
+Router Guards
+----------------------------------------------------------------------------------
+
+    is used to protect a route from being accessed
+    only when it is allowed to access.
+
+    Angular provides four types of RouterGuards (interfaces)
+
+        CanActivate            controls if a route can be entered or not
+        CanDeactivate          controls if a route can be left or not
+        CanLoad                controls if a lazy loaded route should be laoded or not
+        canActivateChild       controls if child-routes can be entered or not
