@@ -4,5 +4,4 @@ export interface Transaction {
     amount:number;
     type:string;
     userId:number;
-    isEditable?:boolean;
 }

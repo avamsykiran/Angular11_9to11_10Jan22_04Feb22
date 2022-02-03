@@ -14,26 +14,11 @@ export class HeaderComponent implements OnInit,OnDestroy {
 
   brand:string;
   links!:string[][];
-  adminLinks:string[][];
-  userLinks:string[][];
-  commonLinks:string[][];
   currentUser:User|null;
   userNotifierSubscription!:Subscription;
   
   constructor(private userService:UsersService,private router:Router) {
     this.brand=environment.appTitle;
-    this.commonLinks=[
-      ["/login","Sign In"],
-      ["/register","Sign Up"]
-    ];
-    this.adminLinks=[
-      ["/users","Home"]
-    ];
-    this.userLinks=[
-      ["/txns/list","Transactions"],
-      ["/txns/new","New Transaction"],
-      ["/txns/profile","Profile"]
-    ];
     this.currentUser=this.userService.currentUser();
     this.loadLinks();
   }
@@ -41,12 +26,21 @@ export class HeaderComponent implements OnInit,OnDestroy {
   loadLinks(){
     if(this.currentUser) {
       if(this.currentUser?.role==='ADMIN'){
-        this.links = this.adminLinks;
+        this.links =[
+          ["/users","Home"]
+        ];
       }else{
-        this.links = this.userLinks;
+        this.links =[
+          ["/txns/list","Transactions"],
+          ["/txns/new","New Transaction"],
+          ["/txns/profile/"+this.currentUser?.id,"Profile"]
+        ];
       }
     }else{
-      this.links = this.commonLinks;
+      this.links = [
+        ["/login","Sign In"],
+        ["/register","Sign Up"]
+      ];
     }
   }
 

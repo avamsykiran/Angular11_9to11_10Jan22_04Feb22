@@ -1,1 +1,28 @@
-<p>user-accounts works!</p>
+<section class="container-fluid p-4">
+    <app-message-box *ngIF="!users && !errMsg">
+        <strong>Please wait while loading ...</strong>
+    </app-message-box>
+    <app-message-box *ngIF="errMsg" msgType="error">
+        <strong>{{errMsg}}</strong>
+    </app-message-box>
+    <table *ngIf="users" class="table table-bordered table-striped">
+        <thead>
+            <tr>
+                <th>User#</th>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Mobile</th>
+                <th>Role</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let u of users">
+                <td>{{u.id}}</td>
+                <td>{{u.name}}</td>
+                <td>{{u.email}}</td>
+                <td>{{u.mobile}}</td>
+                <td>{{u.role}}</td>
+            </tr>
+        </tbody>
+    </table>
+</section>

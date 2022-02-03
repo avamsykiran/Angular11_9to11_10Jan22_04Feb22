@@ -8,6 +8,7 @@ import { MessageBoxComponent } from './message-box/message-box.component';
   declarations: [MessageBoxComponent],
   imports: [
     CommonModule
-  ]
+  ],
+  exports:[MessageBoxComponent]
 })
 export class WidgetModule { }

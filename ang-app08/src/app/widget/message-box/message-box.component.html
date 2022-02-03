@@ -1,1 +1,3 @@
-<p>message-box works!</p>
+<div [class]="{'alert':true,'alert-info':msgType==='info','alert-danger':msgType==='error','p-2':true}" >
+    <ng-content></ng-content>
+</div>

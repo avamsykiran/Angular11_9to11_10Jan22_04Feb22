@@ -48,7 +48,7 @@ export class RegistrationComponent implements OnInit {
     if(uid){
       this.editMode=true;
       this.userService.getById(uid).subscribe(
-        usr=> this.userForm.setValue(usr),
+        usr=> this.userForm.setValue({...usr,role:undefined}),
         err=> {console.log(err); this.errMsg="User details can not be loaded!";}
       );
     }

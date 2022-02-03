@@ -16,7 +16,7 @@
             </div>
             <div>
                 <label>Email Id</label>
-                <input type="text" formControlName="email" class="form-control" />
+                <input type="email" formControlName="email" class="form-control" />
                 <div class="alert alert-danger" *ngIf="emailFC.invalid && (emailFC.touched || emailFC.dirty)">
                     <span *ngIf="emailFC.errors?.required">This is a mandate field</span>
                     <span *ngIf="emailFC.errors?.email">A valid email id expected</span>

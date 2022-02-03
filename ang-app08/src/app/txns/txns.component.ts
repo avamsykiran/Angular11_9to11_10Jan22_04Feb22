@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { User } from '../models/user';
+import { UsersService } from '../service/users.service';
 
 @Component({
   selector: 'app-txns',
@@ -7,7 +9,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TxnsComponent implements OnInit {
 
-  constructor() { }
+  user:User|null;
+
+  constructor(private userService:UsersService) {
+    this.user=this.userService.currentUser();
+  }
 
   ngOnInit(): void {
   }

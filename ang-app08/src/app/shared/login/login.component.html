@@ -1,8 +1,8 @@
 <section class="container-fluid p-4">
     <div class="col-sm-6 mx-auto border p-2">
-        <div class="alert alert-danger" *ngIf="errMsg">
+        <app-message-box *ngIf="errMsg" msgType="error">
             <strong>{{errMsg}}</strong>
-        </div>
+        </app-message-box>
         <form (ngSubmit)="formSubmitted()" #f="ngForm">
             <div>
                 <label>Email </label>

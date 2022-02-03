@@ -6,6 +6,7 @@ import { RouterModule } from '@angular/router';
 import { LoginComponent } from './login/login.component';
 import { RegistrationComponent } from './registration/registration.component';
 import { HeaderComponent } from './header/header.component';
+import { WidgetModule } from '../widget/widget.module';
 
 
 @NgModule({
@@ -14,7 +15,8 @@ import { HeaderComponent } from './header/header.component';
     CommonModule,
     FormsModule,
     ReactiveFormsModule,
-    RouterModule
+    RouterModule,
+    WidgetModule
   ],
   exports:[LoginComponent, RegistrationComponent, HeaderComponent]
 })

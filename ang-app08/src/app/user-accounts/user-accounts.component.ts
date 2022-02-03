@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { User } from '../models/user';
+import { UsersService } from '../service/users.service';
 
 @Component({
   selector: 'app-user-accounts',
@@ -7,9 +9,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class UserAccountsComponent implements OnInit {
 
-  constructor() { }
+  users!:User[];
+  errMsg!:string;
+
+  constructor(private userSerive:UsersService) { }
 
   ngOnInit(): void {
+    this.userSerive.getAll().subscribe(
+      users => this.users=users,
+      err => { console.log(err);this.errMsg="Unable to fetech data!"}
+    );
   }
 
 }

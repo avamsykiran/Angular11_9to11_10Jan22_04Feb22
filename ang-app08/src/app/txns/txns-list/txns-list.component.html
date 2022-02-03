@@ -1,1 +1,35 @@
-<p>txns-list works!</p>
+<app-message-box *ngIf="!txns && !errMsg">
+    <strong>Loading data please wait....</strong>
+</app-message-box>
+<app-message-box *ngIf="errMsg" msgType="error">
+    <strong>Loading data please wait....</strong>
+</app-message-box>
+<table class="table table-bordered table-stripped" *ngIf="txns">
+    <thead>
+        <tr>
+            <th>Txn#</th>
+            <th>Header</th>
+            <th>Credit</th>
+            <th>Debit</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let t of txns">
+            <td class="text-end">{{t.id}}</td>
+            <td>{{t.header}}</td>
+            <td class="text-end">{{t.type==='CREDIT'?t.amount:undefined}}</td>
+            <td class="text-end">{{t.type==='DEBIT'?t.amount:undefined}}</td>
+        </tr>
+    </tbody>
+    <tfoot>
+        <tr>
+            <td colspan="2"><strong>Total</strong></td>
+            <td class="text-end"><strong>{{txnSmry.totalCredit}}</strong></td>
+            <td class="text-end"><strong>{{txnSmry.totalDebit}}</strong></td>
+        </tr>
+        <tr>
+            <td colspan="3"><strong>Balance</strong></td>
+            <td class="text-end"><strong>{{txnSmry.balance}}</strong></td>
+        </tr>
+    </tfoot>
+</table>
